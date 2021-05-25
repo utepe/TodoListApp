@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { ChangeEventHandler } from "react";
 
-export const CardList = () => {
-    return (
-        <div>
-            
-        </div>
-    )
+import { TodoItem } from "../../models/todo-item.interface";
+import Card from "../card/card.component";
+
+interface ICardListProps {
+    items: TodoItem[];
+    onRemove: any;
 }
+
+export const CardList = ({ items, onRemove }: ICardListProps, ) => {
+    return (
+        <div className="card-list">
+            {items.map(({ ...item }: TodoItem) => (
+                <Card key={item.id} {...item} onRemove={onRemove} />
+            ))}
+        </div>
+    );
+};
