@@ -1,5 +1,5 @@
 import React from "react";
-
+import TextField from "@material-ui/core/TextField"
 import "./search-box.styles.css";
 
 interface ISearchBoxProps {
@@ -9,11 +9,6 @@ interface ISearchBoxProps {
 
 export const SearchBox = ({ placeHolder, handleChange }: ISearchBoxProps) => {
     return (
-        <input
-            className="search"
-            type="search"
-            placeholder={placeHolder}
-            onChange={handleChange}
-        />
+        <TextField className="search" id="standard-basic" label={placeHolder} variant="standard" onChange={handleChange} />
     );
 };

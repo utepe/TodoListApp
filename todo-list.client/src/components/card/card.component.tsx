@@ -3,6 +3,8 @@ import React from "react";
 import Checkbox from "@material-ui/core/Checkbox";
 import SimpleMenu from "../simple-menu/simple-menu.component";
 
+import './card.styles.css'
+
 export const Card = ({ onRemove, ...item }: ICardProps) => {
     // FIXME: Fix this the CORS issue
     // async function updateCard() {

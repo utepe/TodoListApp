@@ -54,7 +54,7 @@ export default class TodoPage extends Component<{}, ITodoPageState> {
     };
 
     handleIsCompletedChange = (id: string) => {
-        
+
         const newTodoList = this.state.todoList.filter(item => item.id !== id);
         this.setState({ todoList: newTodoList });
 
@@ -72,7 +72,7 @@ export default class TodoPage extends Component<{}, ITodoPageState> {
             <div className="TodoPage">
                 <h1>Todo List</h1>
                 <SearchBox
-                    placeHolder="search not completed items"
+                    placeHolder="Search Not Completed"
                     handleChange={this.handleSearchChange}
                 />
                 <CardList

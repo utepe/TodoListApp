@@ -3,6 +3,8 @@ import React from "react";
 import { TodoItem } from "../../models/todo-item.interface";
 import Card from "../card/card.component";
 
+import './card-list.styles.css'
+
 interface ICardListProps {
     items: TodoItem[];
     onRemove: any;
