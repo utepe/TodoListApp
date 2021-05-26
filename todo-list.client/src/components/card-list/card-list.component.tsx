@@ -1,4 +1,4 @@
-import React, { ChangeEventHandler } from "react";
+import React from "react";
 
 import { TodoItem } from "../../models/todo-item.interface";
 import Card from "../card/card.component";

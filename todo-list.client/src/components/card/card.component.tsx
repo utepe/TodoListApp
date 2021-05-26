@@ -1,30 +1,32 @@
 import axios from "axios";
 import React from "react";
+import Checkbox from "@material-ui/core/Checkbox";
+import SimpleMenu from "../simple-menu/simple-menu.component";
 
 export const Card = ({ onRemove, ...item }: ICardProps) => {
-    async function updateCard() {
-        try {
-            const updatedCard = {
-                id: item.id,
-                title: item.title,
-                description: item.description,
-                isCompleted: !item.isCompleted,
-                updated: Date.now().toString(),
-            };
-            // FIXME: Fix this the CORS issue
-            const res = await axios({
-                method: "PUT",
-                url: `https://localhost:44392/api/TodoItem/${item.id}`,
-                data: updatedCard,
-                headers: {
-                    "Content-Type": "application/json",
-                },
-            });
-            console.log(res);
-        } catch (error) {
-            console.error(error);
-        }
-    }
+    // FIXME: Fix this the CORS issue
+    // async function updateCard() {
+    //     try {
+    //         const updatedCard = {
+    //             id: item.id,
+    //             title: item.title,
+    //             description: item.description,
+    //             isCompleted: !item.isCompleted,
+    //             updated: Date.now().toString(),
+    //         };
+    //         const res = await axios({
+    //             method: "PUT",
+    //             url: `https://localhost:44392/api/TodoItem/${item.id}`,
+    //             data: updatedCard,
+    //             headers: {
+    //                 "Content-Type": "application/json",
+    //             },
+    //         });
+    //         console.log(res);
+    //     } catch (error) {
+    //         console.error(error);
+    //     }
+    // }
 
     return (
         <div className="card-container">
@@ -32,14 +34,17 @@ export const Card = ({ onRemove, ...item }: ICardProps) => {
             <p>{item.description}</p>
             <p>
                 Completed:
-                <input
-                    type="checkbox"
+                <Checkbox
+                    color="default"
+                    inputProps={{ "aria-label": "checkbox with default color" }}
                     onClick={() => {
                         onRemove(item.id);
-                        updateCard();
+                        // FIXME: this update method
+                        // updateCard();
                     }}
                 />
             </p>
+            <SimpleMenu />
         </div>
     );
 };
@@ -53,20 +58,4 @@ interface ICardProps {
     onRemove: any;
 }
 
-// interface ICardState {
-//     title: string;
-//     description: string;
-//     isCompleted: boolean;
-// }
-
 export default Card;
-
-//  Card  {
-//     return <div className="card-container">
-//         <h4>{props.title}</h4>
-//         <p>{props.description}</p>
-//         <p>Completed:
-//             <input type="checkbox" name="" id="" />
-//         </p>
-//     </div>;
-// };

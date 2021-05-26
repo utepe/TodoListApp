@@ -10,7 +10,7 @@ using TodoList.WebAPI.Models;
 
 namespace TodoList.WebAPI.Controllers
 {
-    [EnableCors(origins: "http://localhost:3000", headers: "*", methods: "*")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("api/[controller]")]
     [ApiController]
     public class TodoItemController : ControllerBase

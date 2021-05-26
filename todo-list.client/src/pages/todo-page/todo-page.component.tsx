@@ -54,6 +54,7 @@ export default class TodoPage extends Component<{}, ITodoPageState> {
     };
 
     handleIsCompletedChange = (id: string) => {
+        
         const newTodoList = this.state.todoList.filter(item => item.id !== id);
         this.setState({ todoList: newTodoList });
 
